@@ -14,7 +14,15 @@ namespace learning_project
     }
     class NumberReverser
     {
-
+        public void ReverseNumber(int a)
+        {
+            char [] arr = a.ToString().ToCharArray();
+            foreach (char i in arr) i.ToString();
+            for (int i = arr.Length; i > 0; i--)
+            {
+                Console.WriteLine(arr[i - 1]);
+            }
+        }
     }
     class Program
     {
@@ -25,7 +33,10 @@ namespace learning_project
             numberOutputer.CheckNumber(1, 10, 2);
 
             // second task - Дано число вывести его обратном порядке
+            NumberReverser numberReverser = new NumberReverser();
+            numberReverser.ReverseNumber(123);
 
+            // third task - Реализовать метод реализующий факториал 
         }
     }
 }
