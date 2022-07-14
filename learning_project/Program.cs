@@ -24,6 +24,15 @@ namespace learning_project
             }
         }
     }
+    class FactorialNumber
+    {
+        private int result = 1;
+        public void Factorial(int a)
+        {
+            for (int i = 1; i <= a; i++) result *= i;
+            Console.WriteLine("Factorial a is: " + result);
+        }
+    }
     class Program
     {
         static void Main(string[] args)
@@ -37,6 +46,8 @@ namespace learning_project
             numberReverser.ReverseNumber(123);
 
             // third task - Реализовать метод реализующий факториал 
+            FactorialNumber factorialNumber = new FactorialNumber();
+            factorialNumber.Factorial(4);
         }
     }
 }
