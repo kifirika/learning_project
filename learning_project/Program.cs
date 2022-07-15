@@ -33,6 +33,54 @@ namespace learning_project
             Console.WriteLine("Factorial a is: " + result);
         }
     }
+    class NumerSummator
+    {
+        private int result = 0;
+        public void Summator()
+        {
+            for(int i = 0; i < 11; i++) result += i;
+            Console.WriteLine("The sum of first 10 numbers is: " + result);
+        }
+    }
+    class NumberReturner
+    {
+        private int sum;
+        public void SearchEvenNumbers(int start, int end)
+        {
+            if (start <= end && start >= 0 && end >= 0)
+            {
+                while (start != end)
+                {
+                    if (start % 2 == 0)
+                    {
+                        Console.WriteLine(start);
+                    }
+                    start++;
+                }
+            }
+        }
+        //public void SearchPerfectNumber(int start, int end)
+        //{
+        //    if (start <= end && start >= 0 && end >= 0)
+        //    {
+        //        for (int i = start; i <= end; i++)
+        //        {
+        //            for (int j = 1; j <= i; j++)
+        //            {
+        //                if (j % i == 0)
+        //                {
+        //                    sum += i;
+        //                }
+        //                if (sum == i) Console.WriteLine(i + " - совершенное число");
+        //            }
+        //        }
+                
+        //    } else
+        //    {
+        //        Console.WriteLine("Низ диапазона должен быть меньше верха.");
+        //    }
+        //}
+    }
     class Program
     {
         static void Main(string[] args)
@@ -48,6 +96,17 @@ namespace learning_project
             // third task - Реализовать метод реализующий факториал 
             FactorialNumber factorialNumber = new FactorialNumber();
             factorialNumber.Factorial(4);
+
+            //fourth task - Получить сумму первых 10 чисел
+            NumerSummator numerSummator = new NumerSummator();
+            numerSummator.Summator();
+
+            //fifth task - Реализовать метод, который получает число и возвращает все четные числа в диапазоне 
+            NumberReturner numberReturner = new NumberReturner();
+            numberReturner.SearchEvenNumbers(0, 10);
+
+            //sixth task - Реализовать метод, который получает число и возвращает все соверщенные числа в диапазоне
+            //numberReturner.SearchPerfectNumber(6, 30);
         }
     }
 }
