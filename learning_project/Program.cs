@@ -30,7 +30,7 @@ namespace learning_project
         public void Factorial(int a)
         {
             for (int i = 1; i <= a; i++) result *= i;
-            Console.WriteLine("Factorial a is: " + result);
+            Console.WriteLine("Factorial A is: " + result);
         }
     }
     class NumerSummator
@@ -59,27 +59,47 @@ namespace learning_project
                 }
             }
         }
-        //public void SearchPerfectNumber(int start, int end)
-        //{
-        //    if (start <= end && start >= 0 && end >= 0)
-        //    {
-        //        for (int i = start; i <= end; i++)
-        //        {
-        //            for (int j = 1; j <= i; j++)
-        //            {
-        //                if (j % i == 0)
-        //                {
-        //                    sum += i;
-        //                }
-        //                if (sum == i) Console.WriteLine(i + " - совершенное число");
-        //            }
-        //        }
-                
-        //    } else
-        //    {
-        //        Console.WriteLine("Низ диапазона должен быть меньше верха.");
-        //    }
-        //}
+        public void SearchPerfectNumber(int start, int end)
+        {
+            if (start <= end && start >= 0 && end >= 0)
+            {
+                for (int i = start; i <= end; i++)
+                {
+                    for (int j = 1; j <= i; j++)
+                    {
+                        if (i % j == 0)
+                        {
+                            sum += j;
+                            if (sum == i) Console.WriteLine(i + " - perfect number");
+                        }
+                    }
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("низ диапазона должен быть меньше верха.");
+            }
+        }
+    }
+    class ArrayEvenMunberSummator
+    {
+        private int [] arr;
+        private int sum = 0;
+        Random random = new Random();
+        public void Summator (int value)
+        {
+            arr = new int[value];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = random.Next(0, 11);
+                if (i % 2 == 0)
+                {
+                    sum += arr[i];
+                }
+            }
+            Console.WriteLine("Сумма четных элементов массива: " + sum);
+        }
     }
     class Program
     {
@@ -106,7 +126,14 @@ namespace learning_project
             numberReturner.SearchEvenNumbers(0, 10);
 
             //sixth task - Реализовать метод, который получает число и возвращает все соверщенные числа в диапазоне
-            //numberReturner.SearchPerfectNumber(6, 30);
+            numberReturner.SearchPerfectNumber(6, 35);
+
+            //seventh task - Получить сумму четных чисел в массиве
+            ArrayEvenMunberSummator arrayEvenMunberSummator = new ArrayEvenMunberSummator();
+            arrayEvenMunberSummator.Summator(15);
+
+            //eigth task - Отсортировать только отрицательные числа в массиве
+
         }
     }
 }
