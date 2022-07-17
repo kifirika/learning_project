@@ -45,6 +45,8 @@ namespace learning_project
     class NumberReturner
     {
         private int sum;
+        private int [] defaultArray = new int[] { -1, -10, 5, 10, 20, -5};
+        private int[] negativeArray;
         public void SearchEvenNumbers(int start, int end)
         {
             if (start <= end && start >= 0 && end >= 0)
@@ -80,6 +82,19 @@ namespace learning_project
             {
                 Console.WriteLine("низ диапазона должен быть меньше верха.");
             }
+        }
+        public void NegativeSort()
+        {
+            negativeArray = new int[defaultArray.Length];
+            for (int i = 0; i < defaultArray.Length; i++)
+            {
+                if (defaultArray[i] < 0)
+                {
+                    negativeArray[i] = defaultArray[i];
+                }
+            }
+            Array.Sort(negativeArray);
+            foreach (int i in negativeArray) Console.WriteLine(i);
         }
     }
     class ArrayEvenMunberSummator
@@ -132,8 +147,8 @@ namespace learning_project
             ArrayEvenMunberSummator arrayEvenMunberSummator = new ArrayEvenMunberSummator();
             arrayEvenMunberSummator.Summator(15);
 
-            //eigth task - Отсортировать только отрицательные числа в массиве
-
+            //eighth task - Отсортировать только отрицательные числа в массиве
+            numberReturner.NegativeSort();
         }
     }
 }
