@@ -116,6 +116,31 @@ namespace learning_project
             Console.WriteLine("Сумма четных элементов массива: " + sum);
         }
     }
+    class TwoDimArrayReturner
+    {
+        private int[,] arr;
+        private Random random = new Random();
+        private int[] maxValueOfStings;
+        public void FindMaxValue (int dim1, int dim2)
+        {
+            arr = new int[dim1, dim2];
+            maxValueOfStings = new int[dim1];
+            for (int i = 0; i < dim1; i++)
+            {
+                for (int j = 0; j < dim2; j++)
+                { 
+                    arr[i,j] = random.Next(0, 10);
+                    if (maxValueOfStings[i] < arr[i, j])
+                    {
+                        maxValueOfStings[i] = arr[i, j];
+                    }
+                    Console.Write($"{arr[i, j]} \t");
+                }
+                Console.WriteLine();
+            }
+            foreach (int i in maxValueOfStings) Console.WriteLine("Большие элементы строк двумерного массива: " + i);
+        }
+    }
     class Program
     {
         static void Main(string[] args)
@@ -149,6 +174,10 @@ namespace learning_project
 
             //eighth task - Отсортировать только отрицательные числа в массиве
             numberReturner.NegativeSort();
+
+            //ninth - Дан двумерный массив получить максимальные элемента каждого столбца
+            TwoDimArrayReturner twoDimArrayReturner = new TwoDimArrayReturner();
+            twoDimArrayReturner.FindMaxValue(5, 5);
         }
     }
 }
